@@ -7,25 +7,21 @@
 
 //   * View the total duration of each workout from the past seven workouts on the `stats` page
 
-const app = require("express").app();
+// const app = require("express").app();
 const Workout = require("../models/workout.js");
 
-app.post("/api/workout", ({ body }, res) => {
-    Workout.create(body)
-        .then(dbWorkout => {
-            res.json(dbWorkout);
-        })
-        .catch(err => {
-            res.status(400).json(err);
-        });
-});
+module.exports = function (app) {
 
-// app.post("")
-
-
-
-
-
+    app.post("/api/workout", ({ body }, res) => {
+        Workout.create(body)
+            .then(dbWorkout => {
+                res.json(dbWorkout);
+            })
+            .catch(err => {
+                res.status(400).json(err);
+            });
+    });
+}
 
 
 

@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3000;
 
-const Workout = require("./workout.js");
+const Workout = require("./models/workout.js");
 
 const app = express();
 
@@ -18,5 +18,10 @@ app.use(express.static("public"));
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
 
 // ROUTES
-require("./routes.html-routes.js")(app);
+require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+
+
+app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}!`);
+});
