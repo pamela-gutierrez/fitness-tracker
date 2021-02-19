@@ -1,3 +1,4 @@
+const { db } = require("../models/workout");
 
 const API = {
   // async indicates that the getLastWorkout function 
@@ -31,6 +32,8 @@ const API = {
 
     return json;
   },
+
+  // This will be a get request because the method is post. 
   async createWorkout(data = {}) {
     const res = await fetch("/api/workouts", {
       method: "POST",
@@ -50,3 +53,5 @@ const API = {
     return json;
   },
 };
+
+

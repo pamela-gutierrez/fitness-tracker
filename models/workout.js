@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-
 // This is the schema that determines the requirements necessary for a new workout.
 const workoutSchema = new Schema({
     day: {
