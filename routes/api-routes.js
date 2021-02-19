@@ -11,7 +11,7 @@ const app = require("express").app();
 const Workout = require("../models/workout.js");
 
 app.post("/api/workout", ({ body }, res) => {
-    db.Workout.create(body)
+    Workout.create(body)
         .then(dbWorkout => {
             res.json(dbWorkout);
         })
@@ -19,6 +19,8 @@ app.post("/api/workout", ({ body }, res) => {
             res.status(400).json(err);
         });
 });
+
+// app.post("")
 
 
 
