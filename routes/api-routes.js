@@ -1,41 +1,24 @@
-const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema;
+//   * Add exercises to the most recent workout plan.
 
-const workoutSchema = new Schema({
-    day: {
-        type: Date,
-        default: Date.now
-    },
-    exercises: [{
-        type: {
-            type: String,
-            trim: true,
-            require: "Type is required"
-        },
-        name: {
-            type: String,
-            trim: true,
-            require: "Name is required"
-        },
-        duration: {
-            type: Number,
-        },
-        weight: {
-            type: Number,
-        },
-        reps: {
-            type: Number,
-        },
-        sets: {
-            type: Number,
+//   * Add new exercises to a new workout plan.
 
-        }
-    }
-        
-    }]
+//   * View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
 
-  
+//   * View the total duration of each workout from the past seven workouts on the `stats` page
+
+const app = require("express").app();
+const Workout = require("../models/workout.js");
+
+app.post("/api/workout", ({ body }, res) => {
+    db.Workout.create(body)
+        .then(dbWorkout => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        });
+});
 
 
 
@@ -46,10 +29,3 @@ const workoutSchema = new Schema({
 
 
 
-
-
-
-
-
-
-})
